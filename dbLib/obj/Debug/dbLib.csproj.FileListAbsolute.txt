@@ -1,0 +1,10 @@
+C:\Users\Васёк\documents\visual studio 2017\Projects\DBD\dbLib\bin\Debug\dbLib.dll.config
+C:\Users\Васёк\documents\visual studio 2017\Projects\DBD\dbLib\bin\Debug\dbLib.dll
+C:\Users\Васёк\documents\visual studio 2017\Projects\DBD\dbLib\bin\Debug\dbLib.pdb
+C:\Users\Васёк\documents\visual studio 2017\Projects\DBD\dbLib\bin\Debug\EntityFramework.dll
+C:\Users\Васёк\documents\visual studio 2017\Projects\DBD\dbLib\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Васёк\documents\visual studio 2017\Projects\DBD\dbLib\bin\Debug\EntityFramework.xml
+C:\Users\Васёк\documents\visual studio 2017\Projects\DBD\dbLib\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Васёк\documents\visual studio 2017\Projects\DBD\dbLib\obj\Debug\dbLib.csprojResolveAssemblyReference.cache
+C:\Users\Васёк\documents\visual studio 2017\Projects\DBD\dbLib\obj\Debug\dbLib.dll
+C:\Users\Васёк\documents\visual studio 2017\Projects\DBD\dbLib\obj\Debug\dbLib.pdb

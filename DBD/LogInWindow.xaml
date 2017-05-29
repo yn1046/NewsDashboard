@@ -1,0 +1,21 @@
+﻿<Window x:Class="DBD.LogInWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DBD"
+        mc:Ignorable="d"
+        Title="Вход" Height="300" Width="300" ResizeMode="CanMinimize" Loaded="Window_Loaded" FontFamily="Caecilia LT Std Light">
+    <Window.Background>
+        <ImageBrush TileMode="Tile" />
+    </Window.Background>
+    <Grid>
+        <Label Content="Логин" HorizontalAlignment="Left" Margin="36,53,0,0" VerticalAlignment="Top" Background="#7FBF4343" Foreground="#FF00C7D1" />
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="36,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" x:Name="loginBox" BorderThickness="0" Background="#99BB3737" Foreground="#FF00C7D1" SelectionBrush="#FF4485B2" />
+        <Label Content="Пароль" HorizontalAlignment="Left" Margin="36,123,0,0" VerticalAlignment="Top" Background="#7FBF4343" Foreground="#FF00C7D1" />
+        <PasswordBox HorizontalAlignment="Left" Height="23" Margin="36,154,0,0" VerticalAlignment="Top" Width="226" x:Name="passBox" BorderThickness="0" Background="#99BB3737" Foreground="#FF00C7D1" SelectionBrush="#FF4485B2" />
+        <Button Content="Войти" HorizontalAlignment="Left" Margin="36,212,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="Button_Click" Style="{StaticResource buttonStyle}" />
+        <Button Content="Регистрация" HorizontalAlignment="Left" Margin="187,212,0,0" VerticalAlignment="Top" Height="30" Width="75" Click="Button_Click_1" Style="{StaticResource buttonStyle}" />
+
+    </Grid>
+</Window>

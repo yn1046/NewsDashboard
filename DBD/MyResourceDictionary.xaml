@@ -1,0 +1,52 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:DBD">
+
+    <Style TargetType="Button" x:Key="buttonStyle">
+        <Setter Property="Background" Value="#CCB81212" />
+        <Setter Property="Foreground" Value="#FF61C7DE" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="Button.MouseEnter">
+                <EventTrigger.Actions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation 
+                                          AutoReverse="False" 
+                                          Duration="0:0:0.3" 
+                                          From="#CCB81212" To="#CCC53F3F"
+                                          AccelerationRatio="1" 
+                                          Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                                          FillBehavior="HoldEnd">
+                            </ColorAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger.Actions>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="Button.MouseLeave">
+                <EventTrigger.Actions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation 
+                                          AutoReverse="False" 
+                                          Duration="0:0:0.3" 
+                                          From="#CCC53F3F" To="#CCB81212"
+                                          AccelerationRatio="1" 
+                                          Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                                          FillBehavior="HoldEnd">
+                            </ColorAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger.Actions>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>
