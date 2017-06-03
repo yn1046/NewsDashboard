@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Васёк\documents\visual studio 2017\Projects\DBD\DBD\App.xaml
-4306082263
+6-381310292
 
-13-1972013199
+14862409389
 17-1255303006
-LogInWindow.xaml;MainWindow.xaml;MyResourceDictionary.xaml;RegistrationWindow.xaml;
+AddNewsWindow.xaml;LogInWindow.xaml;MainWindow.xaml;MyResourceDictionary.xaml;RegistrationWindow.xaml;ScrollbarStyleDictionary.xaml;
 
-True
+False
 

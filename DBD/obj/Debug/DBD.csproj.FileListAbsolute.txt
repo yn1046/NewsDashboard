@@ -25,3 +25,6 @@ C:\Users\Васёк\documents\visual studio 2017\Projects\DBD\DBD\obj\Debug\DBD.
 C:\Users\Васёк\documents\visual studio 2017\Projects\DBD\DBD\obj\Debug\DBD.pdb
 C:\Users\Васёк\documents\visual studio 2017\Projects\DBD\DBD\obj\Debug\App.baml
 C:\Users\Васёк\documents\visual studio 2017\Projects\DBD\DBD\obj\Debug\MyResourceDictionary.baml
+C:\Users\Васёк\documents\visual studio 2017\Projects\DBD\DBD\obj\Debug\AddNewsWindow.g.cs
+C:\Users\Васёк\documents\visual studio 2017\Projects\DBD\DBD\obj\Debug\AddNewsWindow.baml
+C:\Users\Васёк\documents\visual studio 2017\Projects\DBD\DBD\obj\Debug\ScrollbarStyleDictionary.baml

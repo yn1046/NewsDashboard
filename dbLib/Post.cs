@@ -24,6 +24,9 @@ namespace dbLib
         [StringLength(4000)]
         public string Text { get; set; }
 
+        [StringLength(10)]
+        public string Category { get; set; }
+
         [Required]
         public DateTime PostDate { get; set; }
     }

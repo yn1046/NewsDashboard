@@ -39,7 +39,7 @@ namespace DBD
             Background = myBrush;
         }
 
-        private void LoadNews()
+        public void LoadNews()
         {
             try
             {
@@ -59,6 +59,85 @@ namespace DBD
         private void Button_Loaded(object sender, RoutedEventArgs e)
         {
             addButton.Visibility = CurrentUser.IsAdmin ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        private void addButton_Click(object sender, RoutedEventArgs e)
+        {
+            var addNewsWindow = new AddNewsWindow(this);
+            addNewsWindow.Show();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var post = DashBoard.SelectedItem as Post;
+                if (string.IsNullOrEmpty(post.Title)) throw new Exception("Необходимо выбрать новость.");
+
+                using (var db = new MyContext())
+                {
+                    if (db.Favourites.Any(f => f.UserId == CurrentUser.Id && f.PostId == post.Id))
+                        throw new Exception("Вы уже добавили эту новость в избранное.");
+
+                    var favourite = new Favourite()
+                    {
+                        UserId = CurrentUser.Id,
+                        PostId = post.Id
+                    };
+
+                    db.Favourites.Add(favourite);
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK);
+            }
+
+        }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var listView = sender as ListView;
+            var selection = listView.SelectedItem as ListViewItem;
+            if (selection.Content.Equals("Избранное"))
+            {
+                try
+                {
+                    using (var db = new MyContext())
+                    {
+                        var favourites = db.Favourites.Where(f => f.UserId == CurrentUser.Id);
+                        var list = db.Posts.Where(p => favourites.Any(f => f.PostId == p.Id)).ToList();
+                        NewsFeed = new ObservableCollection<Post>(list.OrderByDescending(g => g.PostDate).ToList());
+                    }
+                    DashBoard.ItemsSource = NewsFeed;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK);
+                }
+            }
+            else LoadNews();
+        }
+
+        private void ListView_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            var listView = sender as ListView;
+            var selection = listView.SelectedItem as ListViewItem;
+            try
+            {
+                using (var db = new MyContext())
+                {
+                    var list = db.Posts.Where(p => p.Category.Equals(selection.Content.ToString())).ToList();
+                    NewsFeed = new ObservableCollection<Post>(list.OrderByDescending(g => g.PostDate).ToList());
+                }
+                DashBoard.ItemsSource = NewsFeed;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK);
+            }
+
         }
     }
 }

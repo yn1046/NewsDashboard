@@ -49,4 +49,34 @@
             </EventTrigger>
         </Style.Triggers>
     </Style>
+
+    <Style TargetType="ListViewItem" x:Key="itemContainerStyle">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="Margin" Value="1" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Background" Value="#FF912A2A" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListViewItem">
+                    <Border Background="{TemplateBinding Background}" Padding="10">
+                        <ContentPresenter />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#FF9E3434" />
+            </Trigger>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="#FFC1433D" />
+            </Trigger>
+
+        </Style.Triggers>
+    </Style>
+
 </ResourceDictionary>

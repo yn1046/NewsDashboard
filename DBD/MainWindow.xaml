@@ -16,29 +16,51 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="30" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="40" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Button Grid.Column="1" Grid.Row="0" Style="{StaticResource buttonStyle}" Content="Добавить новость" Loaded="Button_Loaded" x:Name="addButton" />
-        <ListView Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Background="#B2FFFFFF"></ListView>
-        <ListView Grid.Column="1" Grid.Row="1" x:Name="DashBoard" 
+        <Button Grid.Column="1" Grid.Row="0" Style="{StaticResource buttonStyle}"
+                Content="Добавить новость" FontSize="15" Foreground="White"
+                Loaded="Button_Loaded" x:Name="addButton" Click="addButton_Click" />
+        <ListView Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Background="#B2FFFFFF" 
+                  ItemContainerStyle="{StaticResource itemContainerStyle}" SelectionChanged="ListView_SelectionChanged">            
+            <ListViewItem Content="Главная" />
+            <ListViewItem Content="Избранное" />
+        </ListView>
+        <Button Grid.Column="0" Grid.Row="2" Content="В избранное" Style="{StaticResource buttonStyle}" Foreground="Wheat" FontSize="16" Click="Button_Click" />
+        <ListView Grid.Column="0" Grid.Row="3" Background="#B2FFFFFF" ItemContainerStyle="{StaticResource itemContainerStyle}" SelectionChanged="ListView_SelectionChanged_1">
+            <ListViewItem Content="Спорт" />
+            <ListViewItem Content="Политика" />
+            <ListViewItem Content="Наука" />
+            <ListViewItem Content="Культура" />
+            <ListViewItem Content="Музыка" />
+            <ListViewItem Content="Кино" />
+            <ListViewItem Content="Люди" />
+
+        </ListView>
+        <ListView Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" x:Name="DashBoard" ScrollViewer.CanContentScroll="False"
                       BorderThickness="0" HorizontalContentAlignment="Stretch"
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                       Foreground="White" Background="#00E2E2E2">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Background="#66B01212">
+                    <Grid Background="#66B01212" MaxWidth="700">
                         <Grid.RowDefinitions>
+                            <RowDefinition />
                             <RowDefinition />
                             <RowDefinition />
                             <RowDefinition />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" Text="{Binding Title}" FontWeight="Bold" Margin="10,3,0,0" TextTrimming="WordEllipsis" />
-                        <TextBlock Grid.Row="1" TextAlignment="Right" Text="{Binding PostDate, StringFormat=d, ConverterCulture=en-GB}" Margin="0,3,10,0" />
-                        <Image Grid.Row="2" Source="{Binding ImagePath}" Stretch="Fill" Height="Auto" Width="200" />
-                        <TextBlock Grid.Row="3" LineStackingStrategy="BlockLineHeight"
-                                       LineHeight="16" MaxHeight="48" Text="{Binding Text}" 
-                                       Height="Auto" Margin="10,0,10,3" TextWrapping="Wrap" TextTrimming="WordEllipsis"/>
+                        <TextBlock Grid.Row="0" Text="{Binding Title}" FontWeight="Bold" Margin="10,3,0,0" TextAlignment="Center" 
+                                   TextWrapping="Wrap" Foreground="Wheat" FontSize="18" />
+                        <TextBlock Grid.Row="1" Text="{Binding Category}" Margin="10,3,0,0" Foreground="White" FontStyle="Italic" />
+                        <TextBlock Grid.Row="2" TextAlignment="Right" Text="{Binding PostDate, StringFormat=d, ConverterCulture=en-GB}" Margin="0,-12,10,0" />
+                        <Image Grid.Row="3" Source="{Binding ImagePath}" Stretch="Uniform" Height="Auto" MaxWidth="400" Margin="0,3,0,3" />
+                        <TextBlock Grid.Row="4" LineStackingStrategy="BlockLineHeight"
+                                       LineHeight="16" Text="{Binding Text}"
+                                       Height="Auto" Margin="10,0,10,5" TextWrapping="Wrap" />
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

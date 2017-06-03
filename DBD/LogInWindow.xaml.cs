@@ -21,11 +21,8 @@ namespace DBD
     /// </summary>
     public partial class LogInWindow : Window
     {
-        public ICommand EnterCommand { get; set; }
-
         public LogInWindow()
         {
-            EnterCommand = new DelegateCommand(DoEnter);
             InitializeComponent();
         }
 
